@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('../font/SUIT/SUIT.css');
+
+*{
+
+}
+
+body{
+    @apply bg-slate-100;
+
+    &.scroll-fix{
+        @apply !overflow-hidden;
+    }
+}
+
+.container{
+    @apply w-full sm:w-[600px] md:w-[1200px] mx-auto px-4;
+}
+
+.text-tnum{ font-feature-settings: "tnum"; }
+
+/*
+ * btn
+ */
+.btn{
+    @apply inline-flex h-12 bg-slate-100 items-center justify-center px-6 text-slate-500 bg-slate-300 rounded-lg leading-none;
+
+    &.btn-block{
+        @apply flex w-full;
+    }
+
+    &.btn-primary{
+        @apply bg-primary text-white border-0;
+    }
+
+    &.btn-black{
+        @apply bg-slate-800 text-white border-0;
+    }
+
+    &.btn-submit{
+        @apply h-14 text-lg px-20;
+        &.btn-block{
+            @apply !px-0;
+        }
+    }
+
+    &.btn-default{
+        @apply bg-white border border-slate-200 text-slate-500;
+    }
+
+    &.btn-sm{
+        @apply h-6 text-xs px-4;
+    }
+
+    &.btn-disabled{
+        @apply bg-stone-200 text-stone-400 border-stone-200 text-opacity-40 cursor-not-allowed;
+    }
+}
+
+/*
+ * input
+ */
+.input{
+    @apply inline-flex flex-wrap items-center;
+
+    &.full{
+        @apply flex;
+    }
+
+    >.title{
+        @apply mb-2 text-sm sm:text-base text-slate-500 w-full;
+    }
+
+    >input{
+        min-width:0;
+        @apply flex-1 h-12 border border-slate-300 px-4 rounded-lg;
+
+        &:focus{
+            @apply border-slate-500;
+            outline:none;
+        }
+
+        &[readonly]{
+            @apply bg-slate-100 cursor-not-allowed;
+        }
+    }
+
+    >textarea{
+        outline:none;
+        @apply w-full h-60 p-4 border border-slate-300 rounded-lg;
+    }
+
+    >.select{
+        @apply flex-1;
+        select{
+            @apply flex flex-1 w-full rounded-lg border border-slate-300 h-12 px-4 pr-8 transition duration-300 bg-white;
+            appearance:none;-webkit-appearance:none;
+            outline:none;
+            background-image:url('../img/icon-select-chevron.png');
+            background-repeat:no-repeat;
+            background-position:right 7px center;
+            background-size:18px;
+        }
+    }
+
+    >.btn{
+        @apply h-12 bg-black text-white px-4 ml-2 rounded-lg font-semibold tracking-tighter;
+    }
+}
+
+.rachel{
+    @apply relative min-h-6;
+    >div{
+        @apply pl-8 inline-flex;
+        &:before{
+            content:'';
+            @apply block w-6 h-6 bg-white absolute left-0 top-0 rounded-full border border-slate-300;
+        }
+        &:after{
+            content:'';
+            @apply block w-6 h-6 absolute left-0 top-0 bg-center bg-no-repeat opacity-20;
+            background-image:url(../img/rachel-check-white.png);
+            background-image:url(../img/rachel-check.png);
+            background-size:0.85rem;
+        }
+        span{
+            @apply leading-6 inline-block min-h-6;
+        }
+    }
+    >input{
+        @apply hidden;
+        &:checked + div{
+            &:before{
+                @apply bg-primary border-primary;
+            }
+            &:after{
+                background-image:url(../img/rachel-check-white.png);
+                @apply opacity-100;
+            }
+        }
+    }
+
+    &:hover{
+        >div{
+            &:before{
+                @apply border-slate-300 bg-slate-100;
+            }
+        }
+    }
+
+    &.single{
+        @apply w-6 h-6 inline-block;
+        >div{
+            @apply pl-0 w-6 h-6;
+            >span{
+                @apply hidden;
+            }
+        }
+    }
+
+    &.sq{
+        >div{
+            &:before{
+                @apply !rounded-md;
+            }
+        }
+    }
+}
+
+
+.table-v{
+    @apply w-full;
+    thead{
+        @apply sticky top-0;
+        tr{
+            th{
+                @apply py-5 px-3 bg-stone-100 border-t border-stone-200 border-b font-semibold text-stone-500 text-sm text-center;
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                @apply border-b border-slate-200 py-5 px-3 text-center bg-white;
+            }
+        }
+    }
+}
+
+.table-a{
+    @apply w-full border border-slate-200;
+    tbody{
+        tr{
+            th{
+                @apply w-44 bg-slate-700 bg-opacity-10 border-b border-slate-300 font-normal text-slate-600 leading-5 py-5 px-4;
+            }
+            td{
+                @apply border-b border-slate-200 py-5 px-4 bg-white leading-5;
+            }
+        }
+    }
+}
+
+.tiptap-content{
+    ul{
+        padding-left:20px;
+        list-style-type:circle;
+    }
+    ol{
+        padding-left:25px;
+        list-style-type:decimal;
+    }
+    p{
+        @apply min-h-4;
+    }
+}
