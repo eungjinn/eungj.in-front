@@ -11,8 +11,9 @@ export default defineNuxtConfig({
   app:{
     head:{
       script:[
-        { src: 'https://kit.fontawesome.com/8d4172bb89.js' },
-      ]
+        { src: 'https://kit.fontawesome.com/593448c29d.js' },
+        {type: 'text/javascript', src: "https://developers.kakao.com/sdk/js/kakao.js"},
+      ],
     }
   },
   modules:[
@@ -90,16 +91,12 @@ export default defineNuxtConfig({
       }
     }
   },
-  nitro: {
-    // preset: "vercel",
-    routeRules: {
-      '/api/**': {
-        proxy: {
-          to: process.env.NODE_ENV === 'development'
-              ? 'http://localhost/eungjin-back/public/**'
-              : 'https://api.eungj.in/**',
-          changeOrigin:true
-        },
+  routeRules: {
+    '/apis/**': {
+      proxy: {
+        to: process.env.NODE_ENV === 'development'
+            ? 'http://localhost/eungjin-back/public/**'
+            : 'https://api.eungj.in/**',
       },
     },
   },
