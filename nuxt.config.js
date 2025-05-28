@@ -96,7 +96,7 @@ export default defineNuxtConfig({
       proxy: {
         to: process.env.NODE_ENV === 'development'
             ? 'http://localhost/eungjin-back/public/**'
-            : 'https://api.eungj.in/**',
+            : 'https://api.eungjin.kim/**',
       },
     },
   },
