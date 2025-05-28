@@ -276,15 +276,17 @@ const getPlaces = (points) => {
                 overlays.spots = []
                 data.dataset.spots.forEach((spot,spotIndex) => {
                     let iconContent = []
+                    let iconSize = 12
 
                     if(spot.groupIdx == 1){
-                        iconContent.push('<div class="bg-black relative w-[20px] h-[20px] bg-[length:14px] rounded-full bg-center bg-no-repeat bg-contain" style="background-image:url(https://i.namu.wiki/i/pc5RM1pQUsoq-BnznoDdcnZ7DNmow8Oi3XPuPmFsPEtgkcaZh4TLd4w6IANOd67B-sL4KemuLGEBY9inBwb7xJMOo9ocPK8DFb8g0pXI2xDbFLZOaL741mpdjE54l0f0CEX5SOcX_eUHzOHZIypuOg.svg)">')
+                        iconSize = 20
+                        iconContent.push('<div class="bg-slate-200 relative w-['+iconSize+'px] h-['+iconSize+'px] bg-[length:14px] rounded-full bg-center bg-no-repeat bg-contain" style="background-image:url(https://i.namu.wiki/i/pc5RM1pQUsoq-BnznoDdcnZ7DNmow8Oi3XPuPmFsPEtgkcaZh4TLd4w6IANOd67B-sL4KemuLGEBY9inBwb7xJMOo9ocPK8DFb8g0pXI2xDbFLZOaL741mpdjE54l0f0CEX5SOcX_eUHzOHZIypuOg.svg)">')
                     }else{
-                        iconContent.push('<div class="bg-rose-500 relative w-[20px] h-[20px] rounded-full">')
+                        iconContent.push('<div class="bg-indigo-600 relative w-['+iconSize+'px] h-['+iconSize+'px] rounded-full">')
                     }
 
                     if(map.value.getZoom() > 10){
-                        iconContent.push('<span class="pt-1 text-xs break-keep font-semibold absolute top-full left-1/2 w-24 text-center -translate-x-1/2 text-slate-800 leading-4">'+spot.name+'</span>')
+                        iconContent.push('<span class="pt-1 text-xs break-keep font-semibold absolute top-full left-1/2 w-20 text-center -translate-x-1/2 text-slate-800 leading-4">'+spot.name+'</span>')
                     }
 
                     iconContent.push('</div>')
@@ -298,8 +300,8 @@ const getPlaces = (points) => {
                             icon: {
                                 // content: '<div class="relative w-[24px] h-[24px] rounded-full"><span class="absolute top-full -translate-x-1/2 text-rose-500">asdfasdfjo sd iogsdg sdga</span></div>',
                                 content:iconContent.join(''),
-                                size: new naver.maps.Size(20, 20),
-                                anchor: new naver.maps.Point(10, 20),
+                                size: new naver.maps.Size(iconSize, iconSize),
+                                anchor: new naver.maps.Point(iconSize/2, iconSize),
                             },
                             // draggable: true,
                             clickable:true,
