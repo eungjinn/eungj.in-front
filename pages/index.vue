@@ -17,7 +17,7 @@
         </swiper>
         <div class="absolute left-0 top-0 w-full h-full flex items-center bg-black bg-opacity-30 z-20">
             <div class="container">
-                <h2 class="text-white text-5xl font-bold">Hello</h2>
+                <h2 class="text-white text-5xl font-bold">Hello brctest1</h2>
             </div>
 
 
